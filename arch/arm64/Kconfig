@@ -1578,3 +1578,66 @@ source "arch/arm64/kvm/Kconfig"
 if CRYPTO
 source "arch/arm64/crypto/Kconfig"
 endif
+
+menu "Xiaomi configuration options"
+
+config MACH_XIAOMI
+        bool "Xiaomi device"
+        depends on ARCH_QCOM
+        help
+          Support for Xiaomi products.
+
+config MACH_XIAOMI_KONA
+        bool "Xiaomi KONA"
+        depends on ARCH_KONA
+        select MACH_XIAOMI
+        help
+          Support for KONA-based Xiaomi variants.
+
+menu "Xiaomi board selection"
+
+config MACH_XIAOMI_ALIOTH
+        bool "Xiaomi alioth board"
+        select MACH_XIAOMI_KONA
+        help
+          Support for Xiaomi Redmi K40.
+
+config MACH_XIAOMI_APOLLO
+        bool "Xiaomi apollo board"
+        select MACH_XIAOMI_KONA
+        help
+          Support for Redmi K30S Ultra.
+
+config MACH_XIAOMI_CAS
+        bool "Xiaomi cas board"
+        select MACH_XIAOMI_KONA
+        help
+          Support for Xiaomi Mi 10 Ultra.
+
+config MACH_XIAOMI_CMI
+        bool "Xiaomi cmi board"
+        select MACH_XIAOMI_KONA
+        help
+          Support for Xiaomi Mi 10 Pro.
+
+config MACH_XIAOMI_LMI
+        bool "Xiaomi lmi board"
+        select MACH_XIAOMI_KONA
+        help
+          Support for Xiaomi Redmi K30 Pro.
+
+config MACH_XIAOMI_THYME
+        bool "Xiaomi thyme board"
+        select MACH_XIAOMI_KONA
+        help
+          Support for Xiaomi Mi 10S.
+
+config MACH_XIAOMI_UMI
+        bool "Xiaomi umi board"
+        select MACH_XIAOMI_KONA
+        help
+          Support for Xiaomi Mi 10.
+
+endmenu
+
+endmenu
